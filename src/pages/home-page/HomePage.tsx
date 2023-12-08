@@ -1,10 +1,14 @@
+import Header from "../../components/Header"
+import Footer from "../../components/Footer"
 
 
 function HomePage () {
 
   return (
     <>
-    <p>'Bienvenidos'</p>
+    <Header />
+    <p>Bienvenidos</p>
+    <Footer />
     </>
   )
 }
