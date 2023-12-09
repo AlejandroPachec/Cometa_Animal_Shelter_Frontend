@@ -1,5 +1,6 @@
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
+import HomePageMain from "../../components/HomePageMain"
 
 
 function HomePage () {
@@ -7,7 +8,7 @@ function HomePage () {
   return (
     <>
     <Header />
-    <p>Bienvenidos</p>
+    <HomePageMain />
     <Footer />
     </>
   )
