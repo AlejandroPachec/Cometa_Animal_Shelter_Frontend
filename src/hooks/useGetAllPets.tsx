@@ -2,46 +2,7 @@
 import { useState, useEffect, FC } from "react";
 import { getAllPetsService} from '../service';
 
-
-const useGetAllPets:FC = () => {
-  
-  const [pets, setPets] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-
-  useEffect(() => {
-
-    const fetchPets = async () => {
-      try {
-      setLoading(true);
-
-        const data: Pet = await getAllPetsService();
-        console.log(data);
-        
-        setPets(data);
-      } catch (error) {
-        setError(error);
-      } finally {
-      setLoading(false);
-    }
-    }
-
-    fetchPets();
-    
-    
-  }, [])
-
-  return {
-    pets,
-    loading,
-    error
-  }
-
-}
-
-export default useGetAllPets
-
-interface Pet {
+export interface Pet {
   pet_id: number;
   name: string;
   species: string;
@@ -57,3 +18,45 @@ interface Pet {
   pet_photos: string[];
   age: string;
 }
+
+interface UseGetAllPetsResult {
+  pets: Pet[];
+  loading: boolean;
+  error: string;
+}
+
+const useGetAllPets : FC = () => {
+  
+  const [pets, setPets] = useState<Pet[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>('');
+
+  useEffect(() => {
+
+    const fetchPets = async () => {
+      try {
+        setLoading(true);
+        const data: Pet[]= await getAllPetsService();
+
+        setPets(data);
+      } catch (error) {
+        setError(error.message || 'Error al obtener las mascotas');
+      } finally {
+      setLoading(false);
+    }
+    }
+
+    fetchPets();
+    
+  }, [])
+
+  return {
+    pets,
+    loading,
+    error
+  }
+
+}
+
+export default useGetAllPets
+
