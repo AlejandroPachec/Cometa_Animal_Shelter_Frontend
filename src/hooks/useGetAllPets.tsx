@@ -35,7 +35,8 @@ const useGetAllPets : FC = () => {
             try {
                 setLoading(true)
                 const data: Pet[] = await getAllPetsService()
-
+                console.log(data);
+                
                 setPets(data)
             } catch (error) {
                 setError(error.message || 'Error al obtener las mascotas')
