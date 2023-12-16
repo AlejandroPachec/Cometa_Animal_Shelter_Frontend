@@ -29,11 +29,10 @@ const useGetAllexperiences : FC = () => {
             try {
                 setLoading(true)
                 const data: Experience[] = await getAllExperiencesService()
-                console.log(data)
 
                 setExperiences(data)
             } catch (error) {
-                setError(error.message || 'Error al obtener las experiencia')
+                setError(error instanceof Error ? error.message : 'Error al obtener las experiencias')
             } finally {
                 setLoading(false)
             }
