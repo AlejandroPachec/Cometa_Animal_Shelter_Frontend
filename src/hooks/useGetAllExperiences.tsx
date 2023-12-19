@@ -1,4 +1,4 @@
-import { useState, useEffect, FC } from 'react'
+import { useState, useEffect } from 'react'
 import { getAllExperiencesService } from '../service'
 
 export interface Experience {
@@ -19,7 +19,7 @@ interface UseGetAllexperiencesResult {
   error: string;
 }
 
-const useGetAllexperiences : FC = () => {
+const useGetAllexperiences = () => {
     const [experiences, setExperiences] = useState<Experience[]>([])
     const [loading, setLoading] = useState<boolean>(false)
     const [error, setError] = useState<string>('')
@@ -28,7 +28,7 @@ const useGetAllexperiences : FC = () => {
         const fetchExperiences = async () => {
             try {
                 setLoading(true)
-                const data: Experience[] = await getAllExperiencesService()
+                const data: Experience[] = await getAllExperiencesService() as Experience[]
 
                 setExperiences(data)
             } catch (error) {

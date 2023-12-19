@@ -13,9 +13,8 @@ const AllPetsList: React.FC = () => {
 
     return (
         pets.length
-            ? (<ul>
-                {pets
-                    .filter((pet: Pet) => pet.status === 'Buscando')
+            ? (<ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                {pets.filter((pet: Pet) => pet.status === 'Buscando')
                     .map((pet: Pet) => (
                         <li key={pet.pet_id}>
                             <PetCard pet={pet} />

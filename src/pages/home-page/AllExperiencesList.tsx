@@ -14,13 +14,12 @@ const AllExperiencesList: React.FC = () => {
 
     return (
         experiences.length
-            ? (<ul>
-                {experiences
-                    .map((experience: Experience) => (
-                        <li key={experience.experience_id}>
-                            <ExperienceCard experience={experience} />
-                        </li>
-                    ))}
+            ? (<ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;'>
+                {experiences.map((experience: Experience) => (
+                    <li key={experience.experience_id}>
+                        <ExperienceCard experience={experience} />
+                    </li>
+                ))}
             </ul>
             )
             : <p>No hay ninguna experiencia disponible</p>

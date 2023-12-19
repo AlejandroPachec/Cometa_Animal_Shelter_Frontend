@@ -1,5 +1,5 @@
 
-import { useState, useEffect, FC } from 'react'
+import { useState, useEffect } from 'react'
 import { getAllPetsService } from '../service'
 
 export interface Pet {
@@ -25,7 +25,7 @@ interface UseGetAllPetsResult {
   error: string;
 }
 
-const useGetAllPets : FC = () => {
+const useGetAllPets = () => {
     const [pets, setPets] = useState<Pet[]>([])
     const [loading, setLoading] = useState<boolean>(false)
     const [error, setError] = useState<string>('')
@@ -34,12 +34,11 @@ const useGetAllPets : FC = () => {
         const fetchPets = async () => {
             try {
                 setLoading(true)
-                const data: Pet[] = await getAllPetsService()
-                console.log(data);
-                
+                const data: Pet[] = await getAllPetsService() as Pet[]
+                console.log(data)
                 setPets(data)
             } catch (error) {
-                setError(error.message || 'Error al obtener las mascotas')
+                setError(error instanceof Error ? error.message : 'Error al obtener las mascotas')
             } finally {
                 setLoading(false)
             }

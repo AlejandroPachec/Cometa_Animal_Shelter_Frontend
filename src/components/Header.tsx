@@ -3,9 +3,9 @@ import logoCometa from '../assets/images/cometa_logo.png'
 
 const Header = () => {
     return (
-        <>
-            <img src={logoCometa} alt='Logo de Cometa'></img>
-            <nav>
+        <div className="flex justify-between items-center">
+            <img src={logoCometa} className="w-[80px]" alt='Logo de Cometa'></img>
+            <nav className="flex gap-5">
                 <a href="">¿Quiénes somos?</a>
                 <a href="">Colabora</a>
                 <a href="">Adopción</a>
@@ -13,7 +13,7 @@ const Header = () => {
                 <a href="">Aparecidos</a>
                 <a href="">Contacto</a>
             </nav>
-        </>
+        </div>
     )
 }
 
