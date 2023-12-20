@@ -3,6 +3,7 @@ import Footer from '../../components/Footer'
 import HomePageMain from '../../components/HomePageMain'
 import AllPetsList from './AllPetsList'
 import AllExperiencesList from './AllExperiencesList'
+import AboutUs from '../aboutUs/AboutUs'
 
 
 function HomePage () {
@@ -12,6 +13,7 @@ function HomePage () {
             <HomePageMain />
             <AllPetsList />
             <AllExperiencesList />
+            <AboutUs />
             <Footer />
         </>
     )

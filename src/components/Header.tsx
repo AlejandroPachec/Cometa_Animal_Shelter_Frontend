@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <div className="flex justify-between items-center">
             <img src={logoCometa} className="w-[80px]" alt='Logo de Cometa'></img>
-            <nav className="flex gap-5">
+            <nav className="flex gap-5 text-[#6a207f] font-bold text-lg">
                 <a href="">¿Quiénes somos?</a>
                 <a href="">Colabora</a>
                 <a href="">Adopción</a>
